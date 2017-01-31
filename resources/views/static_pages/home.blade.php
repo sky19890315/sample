@@ -19,7 +19,7 @@
                         一个专注于学习和进步的网站。
                 </p>
                 <p>
-                        <a class="btn btn-lg btn-success" href="#" role="button">点击注册</a>
+                        <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">点击注册</a>
                 </p>
                 <h1>主页</h1>
         </div>

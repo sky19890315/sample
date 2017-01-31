@@ -15,6 +15,7 @@
 // get('/help','StaticPagesController@help');
 // get('/about','StaticPagesController@about');
 // 传递了两个参数，第一个指明了URL，第二个参数指明了处理该URL的控制器动作
-Route::get('/','StaticPagesController@home');
-Route::get('/help','StaticPagesController@help');
-Route::get('/about','StaticPagesController@about');
+Route::get('/','StaticPagesController@home')->name('home');
+Route::get('/help','StaticPagesController@help')->name('help');
+Route::get('/about','StaticPagesController@about')->name('about');
+get('signup' , 'UsersController@create')->name('signup');

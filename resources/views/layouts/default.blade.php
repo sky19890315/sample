@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
+    @include('layouts._header')
     {{--导航--}}
     <header class="navbar navbar-fixed-top navbar-inverse">
         {{--盒子1--}}
@@ -32,6 +33,7 @@
     {{--主体内容--}}
     <div class="container">
         @yield('content')
+        @include('layouts._footer')
     </div>
 </body>
 </html>
