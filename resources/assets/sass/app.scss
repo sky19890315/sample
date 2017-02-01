@@ -176,8 +176,36 @@
    margin-top: 50px;
  }
  
+ /*用户资料更改*/
+
+ .gravatar-edit {
+   margin: 15px auto;
+   text-align: center;
+   .gravatar {
+     float: none;
+     max-width: 100px;
+   }
+ }
  
- 
- 
+ /* 用户中心样式 */
+ .users {
+   list-style: none;
+   margin: 0;
+   padding-left: 0;
+   li {
+     overflow: auto;
+     padding: 10px 0;
+     border-bottom: 1px solid $gray-lighter;
+   }
+
+ }
+
+ /*index*/
+
+ .delete-btn {
+   float: right;
+   position: relative;
+   right: 0;
+ }
  
  

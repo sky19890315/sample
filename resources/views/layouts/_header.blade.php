@@ -15,7 +15,7 @@
                     {{--增加用户状态--}}
 
                     @if(Auth::check())
-                    <li><a href="#">用户列表</a></li>
+                    <li><a href="{{ route('users.index') }}">用户列表</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -24,7 +24,7 @@
 
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('users.show' , Auth::user()->id) }}">个人中心</a></li>
-                            <li><a href="#">编辑资料</a></li>
+                            <li><a href="{{ route('users.edit' , Auth::user()->id) }}">编辑资料</a></li>
                             <li class="divider"></li>
                             <li>
                                 <a id="logout" href="#">

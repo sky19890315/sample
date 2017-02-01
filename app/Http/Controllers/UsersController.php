@@ -15,6 +15,18 @@ use Auth;
 
 class UsersController extends Controller
 {
+    /*中间件过滤用户以及权限管理*/
+    public function __construct()
+    {
+        $this->middleware('auth' , [
+           'only'   =>      ['edit' , 'update' ,'destroy']
+        ]);
+        /*判断是否登录*/
+        $this->middleware('guest' , [
+            'only'  =>      ['create']
+        ]);
+    }
+
     //第一个方法
     public function create()
     {
@@ -47,5 +59,49 @@ class UsersController extends Controller
         session()->flash('success' , '欢迎光临 , 您将在这里开启一段美妙的旅程');
         return redirect()->route('users.show',[$user]);
 
+    }
+    /*第四个方法 编辑用户资料*/
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        $this->authorize('update' , $user);
+        return view('users.edit' , compact('user'));
+    }
+    /*第五个方法 提交更改*/
+    public function update($id , Request $request)
+    {
+        $this->validate($request , [
+           'name'           =>      'required|max:50' ,
+           'password'       =>      'required|confirmed|min:6',
+        ]);
+
+        $user = User::findOrFail($id);
+        $this->authorize('update' , $user);
+
+        $data = array_filter([
+            'name'          =>      $request->name,
+            'password'      =>      $request->password,
+        ]);
+        $user->update($data);
+
+        session()->flash('success' , '恭喜您！个人资料更新成功！');
+
+        return redirect()->route('users.show' , $id);
+
+    }
+    /*第六个方法 管理员*/
+    public function index()
+    {
+        $users  =   User::paginate(30);
+        return  view('users.index' , compact('users'));
+    }
+    /*第七个方法 删除用户*/
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $this->authorize('destroy' , $user);
+        $user->delete();
+        session()->flash('success','成功删除用户！');
+        return  back();
     }
 }

@@ -11,6 +11,14 @@ use Auth;
 
 class SessionsController extends Controller
 {
+    /*检测用户登录状态，判断是否给予访问登录页面*/
+    public function __construct()
+    {
+        $this->middleware('guest' ,[
+            'only'  =>  ['create']
+        ]);
+    }
+
     //用户登录
     public function create()
     {
@@ -34,7 +42,8 @@ class SessionsController extends Controller
         {
 //            登录成功
             session()->flash('success' , '欢迎回来！');
-            return redirect()->route('users.show' , [Auth::user()]);
+            /*跳转到之前请求失败的页面，没有则跳转到默认的个人页面*/
+            return redirect()->intended(route('users.show' , [Auth::user()]));
         }else{
 //            登录失败
             session()->flash('danger' , '很抱歉，您的邮箱或密码错误, 请重试！');
