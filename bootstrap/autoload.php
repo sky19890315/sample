@@ -29,6 +29,12 @@ require __DIR__.'/../vendor/autoload.php';
 
 $compiledPath = __DIR__.'/cache/compiled.php';
 
+
 if (file_exists($compiledPath)) {
     require $compiledPath;
 }
+
+/*
+ * 引用帮助文档
+ * */
+require __DIR__.'/helpers.php';
