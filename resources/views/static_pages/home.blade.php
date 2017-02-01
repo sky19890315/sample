@@ -21,7 +21,6 @@
                 <p>
                         <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">点击注册</a>
                 </p>
-                <h1>主页</h1>
         </div>
 
 @stop
