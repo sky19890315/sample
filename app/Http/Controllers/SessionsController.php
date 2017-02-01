@@ -28,22 +28,30 @@ class SessionsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request ,[
-            'email'     =>      'required|email|max:255',
+            'emails'     =>      'required|emails|max:255',
             'password'  =>      'required'
 
         ]);
 
         $credentials = [
-          'email'       =>      $request->email,
+          'emails'       =>      $request->email,
           'password'    =>      $request->password,
         ];
 
         if (Auth::attempt($credentials , $request->has('remember')))
         {
 //            登录成功
+            /*判断是否已经激活*/
+            if (Auth::user()->activated){
             session()->flash('success' , '欢迎回来！');
             /*跳转到之前请求失败的页面，没有则跳转到默认的个人页面*/
             return redirect()->intended(route('users.show' , [Auth::user()]));
+            }else{
+                /*未激活*/
+                Auth::logout();
+                session()->flash('warning' , '您的帐号尚未激活,请检查邮箱中的邮件进行激活。');
+                redirect('/');
+            }
         }else{
 //            登录失败
             session()->flash('danger' , '很抱歉，您的邮箱或密码错误, 请重试！');

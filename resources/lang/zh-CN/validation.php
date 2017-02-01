@@ -38,7 +38,7 @@ return [
     'digits_between'       => ':attribute 必须是介于 :min 和 :max 位的数字。',
     'dimensions'           => ':attribute 图片尺寸不正确。',
     'distinct'             => ':attribute 已经存在。',
-    'email'                => ':attribute 不是一个合法的邮箱。',
+    'emails'                => ':attribute 不是一个合法的邮箱。',
     'exists'               => ':attribute 不存在。',
     'file'                 => ':attribute 必须是文件。',
     'filled'               => ':attribute 不能为空。',
@@ -110,14 +110,14 @@ return [
     |
     | The following language lines are used to swap attribute place-holders
     | with something more reader friendly such as E-Mail Address instead
-    | of 'email'. This simply helps us make messages a little cleaner.
+    | of 'emails'. This simply helps us make messages a little cleaner.
     |
     */
 
     'attributes'           => [
         'name'                  => '名称',
         'username'              => '用户名',
-        'email'                 => '邮箱',
+        'emails'                 => '邮箱',
         'first_name'            => '名',
         'last_name'             => '姓',
         'password'              => '密码',

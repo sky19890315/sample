@@ -34,7 +34,7 @@ return [
     'different'            => 'The :attribute and :other must be different.',
     'digits'               => 'The :attribute must be :digits digits.',
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
-    'email'                => 'The :attribute must be a valid email address.',
+    'emails'                => 'The :attribute must be a valid emails address.',
     'exists'               => 'The selected :attribute is invalid.',
     'filled'               => 'The :attribute field is required.',
     'image'                => 'The :attribute must be an image.',
@@ -101,7 +101,7 @@ return [
     |
     | The following language lines are used to swap attribute place-holders
     | with something more reader friendly such as E-Mail Address instead
-    | of "email". This simply helps us make messages a little cleaner.
+    | of "emails". This simply helps us make messages a little cleaner.
     |
     */
 
