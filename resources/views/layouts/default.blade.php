@@ -32,6 +32,7 @@
     </header>
     {{--主体内容--}}
     <div class="container">
+        @include('shared.messages')
         @yield('content')
         @include('layouts._footer')
     </div>
