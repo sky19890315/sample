@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 /*新增加调用模型*/
 use App\Models\User;
 
+use Auth;
+
 
 class UsersController extends Controller
 {
@@ -39,6 +41,8 @@ class UsersController extends Controller
             'email'     =>      $request->email,
             'password'  =>      $request->password,
         ]);
+
+        Auth::login($user);
 
         session()->flash('success' , '欢迎光临 , 您将在这里开启一段美妙的旅程');
         return redirect()->route('users.show',[$user]);

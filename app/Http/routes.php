@@ -18,6 +18,11 @@
 Route::get('/','StaticPagesController@home')->name('home');
 Route::get('/help','StaticPagesController@help')->name('help');
 Route::get('/about','StaticPagesController@about')->name('about');
-get('signup' , 'UsersController@create')->name('signup');
 
+get('signup' , 'UsersController@create')->name('signup');
 resource('users' , 'UsersController');
+
+/* 增加三个方法，针对用户登录和退出*/
+get('login', 'SessionsController@create')->name('login');
+post('login', 'SessionsController@store')->name('login');
+delete('logout', 'SessionsController@destroy')->name('logout');

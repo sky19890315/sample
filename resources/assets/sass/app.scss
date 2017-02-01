@@ -65,7 +65,14 @@
      color: #fff;
    }
  }
- 
+
+ #logout {
+   cursor: default;
+   &:hover {
+   background-color: transparent;
+ }
+ }
+
  /*脚部*/
  footer {
    margin-top: 45px;

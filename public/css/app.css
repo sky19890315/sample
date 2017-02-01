@@ -5784,6 +5784,11 @@ p {
   #logo:hover {
     color: #fff; }
 
+#logout {
+  cursor: default; }
+  #logout:hover {
+    background-color: transparent; }
+
 /*脚部*/
 footer {
   margin-top: 45px;
