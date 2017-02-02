@@ -32,7 +32,7 @@
 
                    <div class="form-group">
                        <label for="email">邮箱：</label>
-                       <input type="text" name="email" class="form-control" value="{{ old('emails') }}">
+                       <input type="text" name="email" class="form-control" value="{{ old('email') }}">
                    </div>
 
                    <div class="form-group">
@@ -42,7 +42,7 @@
 
                    <div class="form-group">
                        <label for="password_confirmation">确认密码：</label>
-                       <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}">
+                       <input type="password" name="password_confirmation" class="form-control" >
                    </div>
 
                    <button type="submit" class="btn btn-primary">点击注册</button>

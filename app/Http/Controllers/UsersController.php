@@ -46,14 +46,14 @@ class UsersController extends Controller
     {
         $this->validate($request,[
             'name'      =>  'required|max:50',
-            'emails'     =>  'required|emails|unique:users|max:255',
+            'email'     =>  'required|email|unique:users|max:255',
             'password'  =>  'required|confirmed|min:6'
         ]);
 
         $user = User::create([
             'name'      =>      $request->name,
-            'emails'     =>      $request->email,
-            'password'  =>      $request->password,
+            'email'     =>      $request->email,
+            'password'  =>      $request->password
         ]);
 
         $this->sendEmailConfirmationTo($user);
@@ -86,8 +86,8 @@ class UsersController extends Controller
         $this->authorize('update' , $user);
 
         $data = array_filter([
-            'name'          =>      $request->name,
-            'password'      =>      $request->password,
+            'name'          =>      $request->input('name'),
+            'password'      =>      $request->input('password'),
         ]);
         $user->update($data);
 
