@@ -6,7 +6,7 @@
  * Time: 下午1:32
  */
 ?>
-@if(count($feed_items) >0)
+@if(count($feed_items))
     <ol class="statuses">
         @foreach($feed_items as $status)
             @include('statuses._status' , ['user' => $status->user])

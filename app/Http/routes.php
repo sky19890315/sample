@@ -38,3 +38,11 @@ post('password/reset' , 'Auth\PasswordController@postReset')->name('password.upd
 
 /* 增加微薄路由*/
 resource('statuses' , 'StatusesController', ['only' => ['store' ,'destroy']]);
+/*粉丝*/
+get('/users/{id}/followings' , 'UsersController@followings')->name('users.followings');
+get('/users/{id}/followers' , 'UsersController@followers')->name('users.followers');
+
+/*关注用户+++++++++++++++++取消关注*/
+
+post('/users/followers/{id}' , 'FollowersController@store')->name('followers.store');
+delete('/users/followers/{id}' , 'FollowersController@destroy')->name('followers.destroy');

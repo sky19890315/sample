@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth' , [
-           'only'   =>      ['edit' , 'update' ,'destroy']
+           'only'   =>      ['edit' , 'update' ,'destroy' , 'followings' , 'followers']
         ]);
         /*判断是否登录*/
         $this->middleware('guest' , [
@@ -151,6 +151,24 @@ class UsersController extends Controller
         Auth::login($user);
         session()->flash('success' , "恭喜您！激活成功！");
         return redirect()->route('users.show' , [$user]);
+
+    }
+    /*第十种方法 粉丝*/
+    public function followings($id)
+    {
+    $user = User::findOrFail($id);
+    $users = $user->followings()->paginate(20);
+    $title = '关注的人';
+    return view('users.show_follow' , compact('users' , 'title'));
+    }
+
+    /*第十一种方法*/
+    public function followers($id)
+    {
+        $user = User::findOrFail($id);
+        $users = $user->followers()->paginate(20);
+        $title = '粉丝' ;
+        return view('users.show_follow' , compact('users' ,'titlee'));
 
     }
 

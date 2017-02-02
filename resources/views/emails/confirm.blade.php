@@ -13,10 +13,10 @@
         <title>注册确认链接</title>
     </head>
 <body>
-    <h1>感谢您在skylaravel网站进行注册</h1>
+    <h1>感谢您在weibo-sky网站进行注册</h1>
     <p>
         <a href="{{ route('confirm_email' , $user->activation_token) }}">
-            {{ route('confirm_email' , $uer->activation_token) }}
+            {{ route('confirm_email' , $user->activation_token) }}
         </a>
     </p>
     <p>

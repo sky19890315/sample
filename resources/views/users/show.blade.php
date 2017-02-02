@@ -21,6 +21,11 @@
             </div>
             {{--新增微博系统--}}
             <div class="col-md-12">
+                {{--增加关注视图--}}
+                @if(Auth::check())
+                    @include('users._follow_form')
+                @endif
+
                 @if(count($statuses) >0)
                     <ol class="statuses">
                         @foreach( $statuses as $status )
