@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> @yield('title','Sky Sample') - laravel project </title>
+    <title> @yield('title','Weibo-sky') - A funny web</title>
     {{--增加样式--}}
     <link rel="stylesheet" href="/css/app.css">
 </head>

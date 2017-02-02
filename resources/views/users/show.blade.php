@@ -24,7 +24,7 @@
                 @if(count($statuses) >0)
                     <ol class="statuses">
                         @foreach( $statuses as $status )
-                            @include('statuses._statuses')
+                            @include('statuses._status')
                         @endforeach
                     </ol>
                     {{--分页--}}

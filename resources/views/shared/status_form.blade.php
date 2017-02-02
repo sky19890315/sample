@@ -1,0 +1,18 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: s
+ * Date: 17-2-2
+ * Time: 下午1:00
+ */
+?>
+<form action="{{ route('statuses.store') }}" method="post">
+    @include('shared.errors')
+    {{--防跨站注入--}}
+    {{ csrf_field() }}
+
+    <textarea class="form-control" rows="3" placeholder="聊聊新鲜事儿吧......" name="content">
+        {{ old('content') }}
+    </textarea>
+    <button type="submit" class="btn btn-primary pull-right">点击发布</button>
+</form>
