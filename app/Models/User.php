@@ -57,6 +57,15 @@ class User extends Model implements AuthenticatableContract,
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    /*20170202新增加*/
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
+
+
 }
 
 

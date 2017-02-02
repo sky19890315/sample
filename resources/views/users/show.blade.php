@@ -19,6 +19,18 @@
                     </section>
                 </div>
             </div>
+            {{--新增微博系统--}}
+            <div class="col-md-12">
+                @if(count($statuses) >0)
+                    <ol class="statuses">
+                        @foreach( $statuses as $status )
+                            @include('statuses._statuses')
+                        @endforeach
+                    </ol>
+                    {{--分页--}}
+                    {!! $statuses->render() !!}
+                @endif
+            </div>
         </div>
     </div>
 @stop

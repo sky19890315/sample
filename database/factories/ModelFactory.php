@@ -15,12 +15,23 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     $date_time = $faker->date . ''. $faker->time;
     return [
         'name' => $faker->name,
-        'emails' => $faker->safeEmail,
+        'email' => $faker->safeEmail,
         'is_admin'  =>  false,
         'activated' => true,
         'password' => str_random(10),
         'remember_token' => str_random(10),
         'created_at'    =>  $date_time,
         'updated_at'    =>  $date_time,
+    ];
+});
+/*添加自动生成的微博*/
+$factory->define(App\Models\Status::class , function (Faker\Generator $faker)
+{
+    $date_time = $faker->date . ' ' .$faker->time;
+
+    return [
+      'content'       =>      $faker->text(),
+      'created_at'    =>  $date_time,
+      'updated_at'    =>  $date_time,
     ];
 });
