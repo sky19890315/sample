@@ -35,12 +35,23 @@ class UsersController extends Controller
         return view('users.create');
     }
     //第二个方法 显示用户
+    /*修改成显示微薄*/
     public function show($id)
     {
         /*根据Id查找，有错误返回错误*/
         $user = User::findOrFail($id);
-        return view('users.show' , compact('user'));
+        /*增加微博状态*/
+        /*倒序排列，每一页显示三十条*/
+        $statuses = $user->statuses()->orderBy('created_at' , 'desc')->paginate(10);
+        /*增加返回值*/
+        /*compact接收多个参数，并一一返回到用户个人页面的视图上*/
+        return view('users.show' , compact('user' ,'statuses'));
     }
+
+
+
+
+
     /*第三个方法 保存用户表单提交信息*/
     public function store( Request $request )
     {
@@ -99,7 +110,7 @@ class UsersController extends Controller
     /*第六个方法 管理员*/
     public function index()
     {
-        $users  =   User::paginate(30);
+        $users  =   User::paginate(15);
         return  view('users.index' , compact('users'));
     }
     /*第七个方法 删除用户*/

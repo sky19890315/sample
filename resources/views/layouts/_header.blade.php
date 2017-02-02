@@ -9,7 +9,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="col-md-offset-1 col-md-10">
-            <a href="/" id="logo"> Sunkeyi.com.cn</a>
+            <a href="/" id="logo"> Weibo-sky</a>
             <nav>
                 <ul class="nav navbar-nav navbar-right">
                     {{--增加用户状态--}}
