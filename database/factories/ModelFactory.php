@@ -12,7 +12,7 @@
 */
 
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
-    $date_time = $faker->date . ''. $faker->time;
+    $date_time = $faker->date . ' '. $faker->time;
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
