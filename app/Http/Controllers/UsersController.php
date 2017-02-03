@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-/*新增加调用模型*/
+use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 use Auth;
@@ -55,7 +55,7 @@ class UsersController extends Controller
     /*第三个方法 保存用户表单提交信息*/
     public function store( Request $request )
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name'      =>  'required|max:50',
             'email'     =>  'required|email|unique:users|max:255',
             'password'  =>  'required|confirmed|min:6'

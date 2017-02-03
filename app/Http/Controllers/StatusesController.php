@@ -28,7 +28,8 @@ class StatusesController extends Controller
         $this->validate($request ,[
             'content'   =>  'required|max:140'
         ]);
-
+        /*修复无法正常发表微薄*/
+        /*发表的微薄与用户关联 为微博内容赋值*/
         Auth::user()->statuses()->create([
             'content'   =>  $request->content
         ]);
