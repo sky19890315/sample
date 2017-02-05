@@ -45,6 +45,7 @@ class User extends Model implements AuthenticatableContract,
         static::creating(function ($user)
         {
            $user->activation_token = str_random(30);
+            $user->password = str_random(30);
         });
     }
 
