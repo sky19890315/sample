@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-xdebug_start_trace();
+
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -17,4 +17,3 @@ class Status extends Model
     }
 }
 
-xdebug_stop_trace();
