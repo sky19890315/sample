@@ -19,7 +19,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'is_admin'  =>  false,
         'activated' => true,
         'password' => $date_time,
-        'remember_token' => $date_time(10),
+        'remember_token' => str_random(10),
         'created_at'    =>  $date_time,
         'updated_at'    =>  $date_time,
     ];
