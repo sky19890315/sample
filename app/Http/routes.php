@@ -37,7 +37,11 @@ get('password/reset/{token}','Auth\PasswordController@getReset')->name('password
 post('password/reset' , 'Auth\PasswordController@postReset')->name('password.update');
 
 /* 增加微薄路由*/
-resource('statuses' , 'StatusesController', ['only' => ['store' ,'destroy']]);
+resource('statuses' , 'StatusesController', ['only' => [ 'create','store' ,'destroy']]);
+//post('/statuses' , 'StatusesController@store')->name('content');
+//delete('/statuses' ,'StatusesController@destroy')->name('content');
+
+
 /*粉丝*/
 get('/users/{id}/followings' , 'UsersController@followings')->name('users.followings');
 get('/users/{id}/followers' , 'UsersController@followers')->name('users.followers');

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,49 +12,98 @@ use Auth;
 
 class StatusesController extends Controller
 {
-    //add sky
+
+    /*中间件过滤*/
     public function __construct()
     {
-        /*中间件*/
-        $this->middleware('auth' , [
-            'only'  => ['store', 'destroy']
+        $this->middleware('auth' ,[
+            'only'  =>  ['store' , 'destroy']
         ]);
     }
-    /*增加微薄限制*/
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        /*验证性*/
         $this->validate($request ,[
-            'content'   =>  'required|max:140'
+            'content' => 'required|max:140'
         ]);
-        /*修复无法正常发表微薄*/
-        /*发表的微薄与用户关联 为微博内容赋值*/
+        $content = $request->input('content');
         Auth::user()->statuses()->create([
-            'content'   =>  $request->content
-        ]);
+            'content' => $content]
+        );
         return redirect()->back();
+
     }
-    /*删除博客*/
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-        $status = Status::findOrFail($id);
-        $this->authorize('destroy' ,$status);
-        $status->delete();
-        session()->flash('success' , '微薄已成功删除！');
-        return redirect()->back();
+        //
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -131,7 +131,7 @@ class UsersController extends Controller
         $from = 'sunkeyi2017@gmail.com';
         $name = 'sky';
         $to     =   $user->email;
-        $subject = "感谢注册 skylaravel ,请确认您的邮箱";
+        $subject = "感谢注册 weibo-sky ,请确认您的邮箱";
 
         Mail::send($view , $data,function ($message) use ($from , $name ,$to ,$subject)
         {
@@ -175,3 +175,5 @@ class UsersController extends Controller
 
 
 }
+
+
