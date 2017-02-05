@@ -62,9 +62,9 @@ class UsersController extends Controller
         ]);
 
         $user = User::create([
-            'name'      =>      $request->name,
-            'email'     =>      $request->email,
-            'password'  =>      $request->password
+            'name'      =>      $request->input('name'),
+            'email'     =>      $request->input('email'),
+            'password'  =>      $request->input('password')
         ]);
 
         $this->sendEmailConfirmationTo($user);

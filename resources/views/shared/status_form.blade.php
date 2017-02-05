@@ -6,10 +6,11 @@
  * Time: 下午1:00
  */
 ?>
-@include('shared.errors')
+
 
 
 <form action="{{ route('statuses.store') }}" method="post">
+    @include('shared.errors')
     {{--防跨站注入--}}
     {!! csrf_field() !!}
 

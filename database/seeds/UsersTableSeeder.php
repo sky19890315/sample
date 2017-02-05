@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
         $users = factory(User::class)->times(50)->make();
         User::insert($users->toArray());
 
+<<<<<<< HEAD
 
                 $user = User::find(1);
                 $user->name = 'sky';
@@ -23,5 +24,8 @@ class UsersTableSeeder extends Seeder
                 $user->is_admin = true;
                 $user->activated = true;
              $user->save();
+=======
+   
+>>>>>>> e753bde22818773b741bb07d4af6fd8b47c4e495
     }
 }
