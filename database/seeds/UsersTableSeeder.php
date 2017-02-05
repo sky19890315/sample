@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = factory(User::class)->times(2)->make();
+        $users = factory(User::class)->times(0)->make();
         User::insert($users->toArray());
 
 
