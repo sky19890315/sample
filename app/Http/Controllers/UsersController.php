@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth' , [
-           'only'   =>      ['edit' , 'update' ,'destroy' , 'followings' , 'followers']
+           'only'   =>      ['edit' , 'update' ,'destroy' , 'followings' , 'followers' ,'profile']
         ]);
         /*判断是否登录*/
         $this->middleware('guest' , [
@@ -171,9 +171,16 @@ class UsersController extends Controller
         return view('users.show_follow' , compact('users' ,'titlee'));
 
     }
+    /*测试登录成功的方法++++++++++++++++++++++++++++++++++++++++*/
+    public function profile(Request $request)
+    {
+        $user = $request->user();
+        echo $user['name'].'登录成功！';
+    }
 
 
 
+    /*测试登录成功的方法++++++++++++++++++++++++++++++++++++++++*/
 }
 
 

@@ -15,9 +15,25 @@
 // get('/help','StaticPagesController@help');
 // get('/about','StaticPagesController@about');
 // 传递了两个参数，第一个指明了URL，第二个参数指明了处理该URL的控制器动作
-Route::get('/','StaticPagesController@home')->name('home');
-Route::get('/help','StaticPagesController@help')->name('help');
-Route::get('/about','StaticPagesController@about')->name('about');
+
+/*认证路由*/
+get('auth/login' , 'Auth\AuthController@getLogin');
+post('auth/login' , 'Auth\AuthController@postLogin');
+get('auth/logout' , 'Auth\AuthController@getLogout');
+/*认证路由*/
+/*注册路由*/
+get('auth/register' , 'Auth\AuthController@getRegister');
+post('auth/register', 'Auth\AuthController@postRegister');
+/*注册路由*/
+/*测试登录成功*/
+get('profile','UserController@profile');
+/*测试登录成功*/
+
+get('/','StaticPagesController@home')->name('home');
+get('/help','StaticPagesController@help')->name('help');
+get('/about','StaticPagesController@about')->name('about');
+
+get('mail/send','MailController@send');
 
 get('signup' , 'UsersController@create')->name('signup');
 resource('users' , 'UsersController');

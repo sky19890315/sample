@@ -10,6 +10,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    /*注册后跳转路径*/
+    protected $redirectPath = '/profile';
+
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
