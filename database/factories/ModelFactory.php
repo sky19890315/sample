@@ -35,3 +35,41 @@ $factory->define(App\Models\Status::class , function (Faker\Generator $faker)
       'updated_at'    =>  $date_time,
     ];
 });
+/*添加自动生成用户2017年2月10日
+修复生成用户密码错误问题 sky*/
+
+$factory->define(App\Models\User::class ,function (Faker\Generator $faker)
+{
+    $date_time = $faker->date.''.$faker->time;
+    static $password;
+
+    return [
+
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        /*修复无法密码为空的问题*/
+        'password' => $faker->$password ?: $password = bcrypt('123456'),
+        'remember_token' => str_random(10),
+        'create_at' => $date_time,
+        'update_at' => $date_time,
+
+    ];
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StatusesTableSeeder');
         $this->call('FollowersTableSeeder');
-
+        $this->call('UsersTableSeeder');
         Model::reguard();
     }
 }

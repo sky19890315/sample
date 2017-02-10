@@ -56,10 +56,11 @@ class User extends Model implements AuthenticatableContract,
         return "http://www.gravatar.com/avatar/$hash?s=$size";
     }
     /*加密密码*/
+    /* 删除这段 20170210
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
-    }
+    }*/
 
     /*20170202新增加*/
     public function statuses()

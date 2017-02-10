@@ -62,9 +62,10 @@ class UsersController extends Controller
         ]);
 
         $user = User::create([
-            'name'      =>      $request->input('name'),
-            'email'     =>      $request->input('email'),
-            'password'  =>      $request->input('password')
+            'name'      =>      $request->name,
+            'email'     =>      $request->email,
+            /*增加bcrypt（）以解决无法登录问题 2017年2月10号*/
+            'password'  =>      bcrypt($request->password),
         ]);
 
         $this->sendEmailConfirmationTo($user);
@@ -96,10 +97,21 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $this->authorize('update' , $user);
 
-        $data = array_filter([
+
+        /*修复过滤 2017年2月10日*/
+      /*  $data = array_filter([
             'name'          =>      $request->input('name'),
             'password'      =>      $request->input('password'),
-        ]);
+        ]);*/
+
+      $date = [];
+      $date['name'] = $request->name;
+      if ( $request->password ){
+          /*修复无法登录问题 20170210*/
+          $date['password'] = bycrpt($request->password) ;
+      }
+
+
         $user->update($data);
 
         session()->flash('success' , '恭喜您！个人资料更新成功！');
