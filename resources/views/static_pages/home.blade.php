@@ -48,12 +48,17 @@
           <div class="jumbotron">
                 <p> 您选择以下注册 , 则将注册成为本站会员!</p>
                 <p>
-                        <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">点击注册</a>
+                    {{--更改注册跳转地址 20170211--}}
+                        <a class="btn btn-lg btn-success" href="/auth/register" role="button">点击注册</a>
                 </p>
+              {{--提高用户体验 增加20170211--}}
+              <br/>
+                <p>已经有帐号了？</p>
+              <p>
+                  {{--更改注册跳转地址 20170211--}}
+                  <a class="btn btn-lg btn-success" href="/auth/login" role="button">直接登录</a>
+              </p>
                 <br/>
-                <br/>
-                <br/>
-
                 <p>本站是一个微博系统 ,欢迎前来体验！</p>
           </div>
     @endif

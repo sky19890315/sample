@@ -11,7 +11,9 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller
 {
     /*注册后跳转路径*/
-    protected $redirectPath = '/profile';
+    protected $redirectPath = '/';
+    /*注册失败后跳转回到登录页面*/
+    protected $redirectLoginPath = '/auth/login' ;
 
 
     /*
@@ -24,14 +26,12 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
+    /*用于普通用户注册 不能删除*/
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
+    /*
+     * 用户退出登录
+     * */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -42,6 +42,7 @@ class AuthController extends Controller
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
+     * 验证用户登录信息
      */
     protected function validator(array $data)
     {
